@@ -1,9 +1,9 @@
-import type { NextPage } from "next";
-import Head from "next/head";
-import { trpc } from "../utils/trpc";
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import { trpc } from '../utils/trpc';
 
 const Home: NextPage = () => {
-  const hello = trpc.useQuery(["example.hello", { text: "from @bayutirto" }]);
+  const hello = trpc.useQuery(['example.hello', { text: 'from @bayutirto' }]);
 
   return (
     <>
@@ -15,9 +15,15 @@ const Home: NextPage = () => {
 
       <main className="container mx-auto flex flex-col items-center justify-center min-h-screen p-4">
         <h1 className="text-5xl md:text-[5rem] leading-normal font-extrabold text-gray-700">
-          Create <span className="text-purple-300">T3 Scalable</span> App 
+          Create <span className="text-purple-300">T3 Scalable</span> App
         </h1>
-        <p className="text-2xl text-gray-700">This custom stack from <span className="text-purple-300"><a href="https://github.com/t3-oss/create-t3-app">create-t3-app</a></span> uses:</p>
+        <p className="text-2xl text-gray-700">
+          This custom stack from{' '}
+          <span className="text-purple-300">
+            <a href="https://github.com/t3-oss/create-t3-app">create-t3-app</a>
+          </span>{' '}
+          uses:
+        </p>
         <div className="grid gap-3 pt-3 mt-3 text-center md:grid-cols-2 lg:w-2/3">
           <TechnologyCard
             name="NextJS"
