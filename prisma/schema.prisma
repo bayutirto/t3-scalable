@@ -12,23 +12,13 @@ datasource db {
     url      = env("DATABASE_URL")
 }
 
-model pengguna {
-    id        String   @id @default(uuid()) @db.VarChar(36)
+model User {
+    idUser    String   @id @default(uuid()) @db.VarChar(36)
     username  String   @unique @db.VarChar(255)
     password  String   @db.VarChar(255)
     email     String   @db.VarChar(255)
     nama      String   @db.VarChar(255)
     kontak    String   @db.VarChar(16)
-    aktif     Boolean  @default(true)
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
-    aksesId   String?  @db.VarChar(32)
-    akses     akses?   @relation(fields: [aksesId], references: [id], onDelete: Restrict, onUpdate: Restrict, map: "pengguna_FK")
-
-    @@index([aksesId], map: "pengguna_FK")
-}
-
-model akses {
-    id       String     @id @db.VarChar(32)
-    pengguna pengguna[]
 }
